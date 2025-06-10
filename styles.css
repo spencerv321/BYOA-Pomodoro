@@ -4,66 +4,91 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: #2563eb;
+    --success-color: #22c55e;
+    --warning-color: #eab308;
+    --danger-color: #ef4444;
+    --background-color: #f8fafc;
+    --text-color: #1e293b;
+    --card-background: #ffffff;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--background-color);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    color: var(--text-color);
 }
 
 .container {
     text-align: center;
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--card-background);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 h1 {
-    color: #333;
+    color: var(--text-color);
     margin-bottom: 2rem;
+    font-weight: 700;
+    font-size: 1.875rem;
 }
 
 .timer {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 .time-display {
-    font-size: 4rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 1rem;
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.025em;
 }
 
 .controls {
     display: flex;
     gap: 1rem;
     justify-content: center;
+    margin-bottom: 2rem;
 }
 
 button {
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.5rem;
     font-size: 1rem;
+    font-weight: 500;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
 }
 
 #start {
-    background-color: #4CAF50;
+    background-color: var(--success-color);
     color: white;
 }
 
 #pause {
-    background-color: #FFC107;
-    color: black;
+    background-color: var(--warning-color);
+    color: var(--text-color);
 }
 
 #reset {
-    background-color: #f44336;
+    background-color: var(--danger-color);
     color: white;
 }
 
@@ -74,15 +99,39 @@ button {
 }
 
 .mode {
-    background-color: #e0e0e0;
-    color: #333;
+    background-color: #e2e8f0;
+    color: var(--text-color);
 }
 
 .mode.active {
-    background-color: #2196F3;
+    background-color: var(--primary-color);
     color: white;
 }
 
 button:hover {
-    opacity: 0.9;
+    transform: translateY(-1px);
+    filter: brightness(1.1);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .time-display {
+        font-size: 3.5rem;
+    }
+    
+    .controls {
+        flex-direction: column;
+    }
+    
+    button {
+        width: 100%;
+    }
 } 
