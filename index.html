@@ -8,20 +8,27 @@
 </head>
 <body>
     <div class="container">
-        <h1><span class="highlight">Pomodoro</span> Timer</h1>
+        <div class="header">
+            <h1>Pomodoro Timer</h1>
+            <button id="dark-mode-toggle" aria-label="Toggle dark mode">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 0111.21 3a1 1 0 00-1.13 1.32A7 7 0 0012 21a9 9 0 009-8.21z" fill="currentColor"/>
+                </svg>
+            </button>
+        </div>
         <div class="timer">
             <div class="time-display">25:00</div>
+            <div class="progress-bar"><div class="progress"></div></div>
+            <button id="toggle-mode">Switch to Break</button>
             <div class="controls">
                 <button id="start">Start</button>
                 <button id="pause">Pause</button>
                 <button id="reset">Reset</button>
+                <button id="add-5-min">+5 min</button>
             </div>
         </div>
-        <div class="mode-selector">
-            <button class="mode active" data-time="25">Pomodoro</button>
-            <button class="mode" data-time="5">Short Break</button>
-            <button class="mode" data-time="15">Long Break</button>
-        </div>
+        <div class="mode-indicator">Current Mode: Work</div>
+        <div class="session-stats">Pomodoros completed today: 0</div>
     </div>
     <script src="script.js"></script>
 </body>
